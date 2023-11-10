@@ -7,6 +7,15 @@
 </head>
 <body>
     <h1>Hello !</h1>
+
+    <% index.forEach(function(index){ %>
+        <div>
+                      
+            <h5 ><%= index.Pseudo%></h5>
+            <p><%= index.Email%></p>
+            <h6> <%= index.Password%></h6>
+        </div>
+    <% }) %>
     
 </body>
 </html>

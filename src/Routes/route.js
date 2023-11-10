@@ -9,6 +9,8 @@ const routeur = express.Router();
 routeur.use(bodyParser.urlencoded({ extended: true }));
 
 routeur.get('/', Controller.Accueil);
+
+routeur.get('/connexion', Controller.Connexion);
   
 
 

@@ -13,7 +13,13 @@ path_to_view = path.join(__dirname, 'src')
 app.set('views', path.join(path_to_view, 'Views'));
 
 
+/* Gérer les routes privées et public prochainement avec les JWT */
+
+/* PUBLIC ROUTES */
 app.use('/', Routeur)
+
+
+/* PRIVÉE ROUTES */
 
 
 const port = 3000
