@@ -1,11 +1,25 @@
 const express = require('express');
 const path = require('path');
 
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+
 /* ROUTES */
 const Routeur = require('./src/Routes/route');
-
+const RouteurAuthentification = require('./src/Routes/routeAuthentification');
 
 const app = express()
+
+
+app.use(cookieParser());
+
+app.use(session({
+    secret: 'uyaraeazeèuazcepazetazepzècgvazezaezea',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {}
+}));
+
 
 app.set('view engine', 'ejs');
 
@@ -17,6 +31,7 @@ app.set('views', path.join(path_to_view, 'Views'));
 
 /* PUBLIC ROUTES */
 app.use('/', Routeur)
+app.use('/authentification', RouteurAuthentification)
 
 
 /* PRIVÉE ROUTES */

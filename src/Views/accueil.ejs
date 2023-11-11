@@ -8,14 +8,12 @@
 <body>
     <h1>Hello !</h1>
 
-    <% index.forEach(function(index){ %>
-        <div>
-                      
-            <h5 ><%= index.Pseudo%></h5>
-            <p><%= index.Email%></p>
-            <h6> <%= index.Password%></h6>
-        </div>
-    <% }) %>
+    <% if (user) { %>
+        <h1>Bienvenue <%= user.pseudo %>!</h1>
+        <!-- Affichez d'autres informations sur l'utilisateur si nécessaire -->
+    <% } else { %>
+        <p>Vous n'êtes pas connecté. Veuillez vous connecter.</p>
+    <% } %>
     
 </body>
 </html>

@@ -6,9 +6,11 @@
     <title>Connexion</title>
 </head>
 <body>
+    <% if (typeof error !== 'undefined') { %>
+        <p><%= error %></p>
+    <% } %>
 
-    <form action="/login" method="POST">
-
+    <form action="/authentification/login" method="POST">
         <label for="email">Email : </label>
         <input type="email" name="email">
         <br>
@@ -17,6 +19,5 @@
         <br>
         <button type="submit">Connexion</button>
     </form>
-    
 </body>
 </html>
