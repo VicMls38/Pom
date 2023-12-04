@@ -4,25 +4,25 @@ const path = require('path');
 /* ROUTES */
 const Routeur = require('./src/Routes/route');
 
-
-const app = express()
+const app = express();
 
 app.set('view engine', 'ejs');
 
-path_to_view = path.join(__dirname, 'src')
-app.set('views', path.join(path_to_view, 'Views'));
+const pathToViews = path.join(__dirname, 'src');
+app.set('views', path.join(pathToViews, 'Views'));
 
+// Configuration pour servir les fichiers statiques, y compris le fichier service-worker.js
+app.use(express.static('public', { extensions: ['html', 'js'] }));
 
-/* Gérer les routes privées et public prochainement avec les JWT */
+/* Gérer les routes privées et publiques prochainement avec les JWT */
 
 /* PUBLIC ROUTES */
-app.use('/', Routeur)
-
+app.use('/', Routeur);
 
 /* PRIVÉE ROUTES */
 
-
-const port = 3000
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+const port = 3999;
+const host = '0.0.0.0';
+app.listen(port, host, () => {
+  console.log(`Example app listening on port ${port}`);
+});
