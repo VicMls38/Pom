@@ -1,9 +1,7 @@
 //Importation 
 const express = require('express');
 const bodyParser = require('body-parser');
-
 const Controller = require('../Controllers/controller');
-
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 

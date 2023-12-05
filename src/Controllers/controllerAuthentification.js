@@ -73,8 +73,8 @@ module.exports = {
     
                     /* Mise en session des données user */
                     req.session.cookie.user = {
-                        pseudo: ligne[0].Pseudo,
-                        email: ligne[0].Email,
+                        username: ligne[0].User_Username,
+                        email: ligne[0].User_Email,
                     };
     
                     console.log("After setting session user:", req.session.cookie.user);
@@ -91,7 +91,27 @@ module.exports = {
             // Send an error response
             res.status(500).send("Internal Server Error");
         }
+    },
+
+    Logout: (req, res) => {
+        if (req.session.cookie.user && req.session.cookie.user.email) {
+            req.session.destroy((err) => {
+                if (err) {
+                    console.error('Erreur lors de la destruction de la session :', err);
+                    res.status(500).send('Erreur interne du serveur');
+                } else {
+                    console.log('Variable de session détruite avec succès');
+                    // Redirigez l'utilisateur vers la page d'accueil après la déconnexion
+                    res.redirect('../'); // Utilisez la redirection relative
+                }
+            });
+        } else {
+            // La variable de session n'existe pas, redirigez directement vers la page d'accueil
+            res.redirect('../');
+        }
     }
+   
+    
     
 } 
 

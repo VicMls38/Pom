@@ -37,7 +37,8 @@ app.use('/authentification', RouteurAuthentification)
 /* PRIVÉE ROUTES */
 
 
-const port = 3000
-app.listen(port, () => {
+const port = 3999
+const host = "0.0.0.0"
+app.listen(port, host, () => {
   console.log(`Example app listening on port ${port}`)
 })
