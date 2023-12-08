@@ -9,7 +9,8 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 const routeur = express.Router();
 routeur.use(bodyParser.urlencoded({ extended: true }));
 
-routeur.get('/', Controller.Accueil);
+routeur.get('/home', Controller.Accueil);
+routeur.get('/', Controller.Index);
 
 
 //Exportation du module routeur

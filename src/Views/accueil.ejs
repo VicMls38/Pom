@@ -4,25 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
+
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/styles.css">
+
+    <script src="/bootstrap/js/bootstrap.bundle.min.js" defer></script>
 </head>
 <body>
-    <h1>Hello !</h1>
 
-    <% if (user) { %>
-        <h1>Bienvenue <%= user.username %>!</h1>
-        <!-- Affichez d'autres informations sur l'utilisateur si nécessaire -->
-        <a href="/authentification/deconnexion"><button>Déconnexion</button></a>
+        <h1>Hello !</h1>
 
-
-
-
-    <% } else { %>
-        <a href="/authentification/connexion"><button>Connexion</button></a>
-        <a href="/authentification/inscription"><button>Inscription</button></a>
-
-        <p>Vous n'êtes pas connecté. Veuillez vous connecter.</p>
-    <% } %>
-
+        <% if (user) { %>
+            <!-- La page d'accueil quand l'utilisateur est connecté -->
+            <h1>Bienvenue <%= user.username %>!</h1>
+            <a href="/authentification/deconnexion"><button class="btn btn-danger">Déconnexion</button></a>
+    
+    
+    
+    
+    
+        <% } else { %>
+            <!-- La page d'accueil quand l'utilisateur est Déconnecté -->
+            <a href="/authentification/connexion"><button class="btn btn-success">Connexion</button></a>
+            <a href="/authentification/inscription"><button class="btn btn-primary">Inscription</button></a>
+        <% } %>
     
 </body>
 </html>
